@@ -1,0 +1,110 @@
+﻿@using TPLOCAL1.Models
+@model TPLOCAL1.Models.FormModel
+<head>
+    <link rel="stylesheet" href="~/resources/Index.css">
+</head>
+<header>
+    <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+    <h1>Formulaire TP HN Avis</h1>
+</header>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Acceuil</a></li>
+            <li><a href="/Home/Index/OpinionList">Liste avis</a></li>
+        </ul>
+    </nav>
+    
+    
+    <section>
+        
+        <form asp-action="ValidationFormulaire" asp-controller="Home" method="post">
+            <p class="titre">Informations Personelles</p>
+            <span asp-validation-for="Nom" class="erreur"></span>
+            <span asp-validation-for="Prenom" class="erreur"></span>
+            <span asp-validation-for="Sexe" class="erreur"></span>
+            <span asp-validation-for="Adresse" class="erreur"></span>
+            <span asp-validation-for="Zipcode" class="erreur"></span>
+            <span asp-validation-for="Ville" class="erreur"></span>
+            <span asp-validation-for="Email" class="erreur"></span>
+            <table>
+                
+                <tr>
+                    <td><label for="nom">Nom:</label></td>
+                    <td><input type="text" id="nom" asp-for="Nom"></td>
+                    
+                </tr>
+                <tr>
+                    <td><label for="prenom">Prenom:</label></td>
+                    <td><input type="text" id="prenom" asp-for="Prenom"></td>
+                    
+                </tr>
+                <tr>
+                    <td><label for="sex">Sexe:</label></td>
+                    <td>
+                        <select id="sexe" asp-for="Sexe">
+                            <option value="select" selected>Selectionner un Sexe</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Homme">Homme</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="adresse">Adresse:</label></td>
+                    <td><input type="text" id="adresse" asp-for="Adresse"></td>                    
+                </tr>
+                <tr>
+                    <td><label for="zipcode">Code Postal:</label></td>
+                    <td><input type="text" id="zipcode" asp-for="Zipcode" pattern="^(\b\d{5}\b)$"></td>
+                </tr>
+                <tr>
+                    <td><label for="ville">Ville:</label></td>
+                    <td><input type="text" id="ville" asp-for="Ville"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Adresse Mail:</label></td>
+                    <td> <input type="email" id="email" asp-for="Email" placeholder="joe@something.com"></td>
+                </tr>
+            </table><br>
+
+            <p class="titre">Informations Formation suivie</p>
+            <span asp-validation-for="Debut" class="erreur"></span>
+            <span asp-validation-for="Formation" class="erreur"></span>
+            <table>
+                <tr>
+                    <td><label for="debut">Date de Début Formation:</label></td>
+                    <td><input type="date" id="debut" asp-for="Debut" min="2021-01-01"></td>
+                </tr>
+                <tr>
+                    <td><label for="formation">Type de Formation:</label></td>
+                    <td>
+                        <select id="formation" asp-for="Formation">
+                            <option value="select" selected>Selectionner une Formartion</option>
+                            <option value="Cobol">Formation Cobol</option>
+                            <option value="Objet">Programation Orientée Objets</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </td>
+                </tr>
+            </table><br>
+
+            <p class="titre">Avis Formation</p>
+            <span asp-validation-for="Avis1" class="erreur"></span>
+            <span asp-validation-for="Avis2" class="erreur"></span>
+            <table>
+                <tr>
+                    <td><label for="avis1">Formation Cobol:</label></td>
+                    <td><input type="text" id="avis1" asp-for="Avis1"></td>
+                </tr>
+                <tr>
+                    <td><label for="avis2">Formation C#:</label></td>
+                    <td><input type="text" id="avis2" asp-for="Avis2"></td>
+                </tr>
+            </table><br><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+
+    </section>
+</body>

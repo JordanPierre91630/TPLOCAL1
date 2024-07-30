@@ -1,0 +1,55 @@
+﻿@using TPLOCAL1.Models
+
+
+
+<head>
+    <link rel="stylesheet" href="~/resources/Index.css">
+</head>
+<header>
+    <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+    <h1>Liste d'Avis</h1>
+</header>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Acceuil</a></li>
+            <li><a href="/Home/Index/Form">Formulaire</a></li>
+        </ul>
+    </nav>
+    <p>
+       
+    <section>
+        <table>
+            <tr>
+                <td>Nom</td>
+                <td>Prenom</td>
+                <td>Avis donné</td>
+            </tr>
+
+                
+                    @foreach (TPLOCAL1.Models.Opinion avis in ViewBag.opinionlist)
+                        {
+                        if (avis.OpinionGiven == "O")
+                        {
+                            <tr>
+                                <td>@avis.LastName</td>
+                                <td>@avis.FirstName</td>
+                                <td class="Oui">@avis.OpinionGiven</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>@avis.LastName</td>
+                                <td>@avis.FirstName</td>
+                                <td class="Non">@avis.OpinionGiven</td>
+                            </tr>
+                        }
+                    }
+               
+
+        </table>
+
+         
+    </section>
+</body>
